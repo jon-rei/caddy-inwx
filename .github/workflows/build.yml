@@ -68,14 +68,15 @@ jobs:
       - uses: docker/setup-buildx-action@v4
 
       # Build the native-arch image into the local daemon to smoke-test it.
-      # The multi-arch build below reuses its layers.
+      # The multi-arch build below reuses its layers from the same builder.
+      # No GHA cache: every publish changes the Dockerfile, so it would never
+      # hit, and exporting it took ~2 minutes.
       - name: Build test image
         uses: docker/build-push-action@v7
         with:
           context: .
           load: true
           tags: caddy-inwx:test
-          cache-from: type=gha
 
       - name: Smoke test
         run: |
@@ -98,5 +99,3 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           annotations: ${{ steps.meta.outputs.annotations }}
           sbom: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max

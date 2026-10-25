@@ -1,0 +1,22 @@
+# Local Caddy config and data used for testing the image
+Caddyfile
+/data/
+/config/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Build output
+/caddy
+*.tar
+*.tar.gz
+
+# Editors and OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store

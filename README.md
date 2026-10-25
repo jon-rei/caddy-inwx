@@ -122,10 +122,6 @@ workflow publish to GHCR, using the built-in `GITHUB_TOKEN` — no extra secrets
 required. Before publishing, a smoke test checks that the image runs and that
 `dns.providers.inwx` is present at the pinned version.
 
-> The GHCR package is created as **private** on first push. To make the image
-> publicly pullable, change the package visibility to public in the GitHub
-> package settings.
-
 ## License
 
 [MIT](LICENSE)

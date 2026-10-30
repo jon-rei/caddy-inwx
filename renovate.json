@@ -1,6 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigestsToSemver",
+    "helpers:githubDigestChangelogs"
+  ],
   "packageRules": [
     {
       "description": "Bump the builder and runtime Caddy images together",

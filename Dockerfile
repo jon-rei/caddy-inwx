@@ -7,7 +7,7 @@ ARG INWX_VERSION=v0.4.1
 
 # Build on the runner's native architecture and cross-compile for the target
 # platform, so multi-arch builds do not need QEMU emulation.
-FROM --platform=$BUILDPLATFORM caddy:2.11.9-builder@sha256:1e0eafbcb473de84e6f1a7878dc44db8063ff1f52ff1c8974d7f06f2ff67c182 AS builder
+FROM --platform=$BUILDPLATFORM caddy:2.11.9-builder@sha256:3fddbec729442a56b942d4c9eaef1df80893dbf2cf5b86701bfae6aad1408eeb AS builder
 
 ARG INWX_VERSION
 ARG TARGETOS

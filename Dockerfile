@@ -20,6 +20,6 @@ ARG TARGETVARIANT
 RUN GOOS=$TARGETOS GOARCH=$TARGETARCH GOARM=${TARGETVARIANT#v} \
     xcaddy build --with github.com/caddy-dns/inwx@${INWX_VERSION}
 
-FROM caddy:2.11.9@sha256:c2aeffaeb80d5403e9c8d1d908b50e191aad204e16129f991ae357ada642094d
+FROM caddy:2.11.9@sha256:0c2243efcf437ab7f7a978f1027fcf0d4f9be8a75df27b1b3fbc5dbe0ffa8cf0
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy

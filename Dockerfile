@@ -7,7 +7,7 @@ ARG INWX_VERSION=v0.4.1
 
 # Build on the runner's native architecture and cross-compile for the target
 # platform, so multi-arch builds do not need QEMU emulation.
-FROM --platform=$BUILDPLATFORM caddy:2.11.8-builder@sha256:d4eb070c36154bd2d4c94b40359a03c6168346d5af5404963c74691ab77fb63f AS builder
+FROM --platform=$BUILDPLATFORM caddy:2.11.9-builder@sha256:1e0eafbcb473de84e6f1a7878dc44db8063ff1f52ff1c8974d7f06f2ff67c182 AS builder
 
 ARG INWX_VERSION
 ARG TARGETOS
@@ -20,6 +20,6 @@ ARG TARGETVARIANT
 RUN GOOS=$TARGETOS GOARCH=$TARGETARCH GOARM=${TARGETVARIANT#v} \
     xcaddy build --with github.com/caddy-dns/inwx@${INWX_VERSION}
 
-FROM caddy:2.11.8@sha256:4fcafa98afd1c2e642e353e3c5cf9ddbe892fcee14bc990e7ba2c5b78e51f9cf
+FROM caddy:2.11.9@sha256:c2aeffaeb80d5403e9c8d1d908b50e191aad204e16129f991ae357ada642094d
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
